@@ -1,0 +1,87 @@
+@import "./variables";
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  --btn-bg: transparent;
+  color: inherit;
+  /* smooth easing for all property changes */
+  transition: background 0.3s $ease-smooth, color 0.3s $ease-smooth,
+    border-color 0.3s $ease-smooth;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #fff;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 380ms $ease-smooth;
+    z-index: -1;
+  }
+
+  & > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    transform: scaleX(1);
+  }
+
+  &:hover {
+    background: transparent;
+    border: 1px solid var(--btn-bg);
+    color: var(--btn-bg);
+  }
+}
+
+.btn-primary {
+  --btn-bg: var(--primary);
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn-secondary {
+  --btn-bg: #ddd;
+  background: #ddd;
+  color: #222;
+}
+
+.btn-danger {
+  --btn-bg: #e74c3c;
+  background: var(--btn-bg);
+  color: #fff;
+}
+
+.btn-whatsapp {
+  --btn-bg: #25d366;
+  background: var(--btn-bg);
+  color: #fff;
+}
+
+/* Ensure hover sets text color and also updates SVG/icon fills and strokes (they don't inherit color) */
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-danger:hover,
+.btn-whatsapp:hover {
+  color: var(--btn-bg);
+}
+
+/* Make sure any child elements (icons, svgs, paths) also switch from white to the original bg color on hover */
+.btn-primary:hover *,
+.btn-secondary:hover *,
+.btn-danger:hover *,
+.btn-whatsapp:hover * {
+  color: var(--btn-bg);
+  fill: var(--btn-bg);
+  stroke: var(--btn-bg);
+  transition: color 0.3s $ease-smooth, fill 0.3s $ease-smooth,
+    stroke 0.3s $ease-smooth;
+}

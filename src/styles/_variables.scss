@@ -1,0 +1,48 @@
+// ================================
+//  Ufloria Theme Variables
+// ================================
+
+// LIGHT THEME (default)
+:root {
+  --bg: #f7f5f0;
+  --card-bg: #ffffff;
+  --text: #4e453a;
+  --text-soft: #6b5b4c;
+  --primary: #b88b5b;
+  --primary-dark: #a47b4a;
+  --border: #ddd1c3;
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+  --success: #2eb67d;
+  --error: #e74c3c;
+}
+
+// DARK THEME
+.dark {
+  --bg: #1c1c1c;
+  --card-bg: #292929;
+  --text: #e8e8e8;
+  --text-soft: #b5b5b5;
+  --primary: #d6a875;
+  --primary-dark: #c4955c;
+  --border: #444;
+  --shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+
+  --success: #39d993;
+  --error: #ff6b6b;
+}
+
+// ================================
+//  SCSS HELPER VARIABLES
+// ================================
+
+$radius: 10px;
+$transition: all 0.2s ease;
+$ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-in-out: ease-in-out;
+$ease-out: cubic-bezier(0, 0, 0.2, 1);
+
+// Use CSS variables inside SCSS
+$shadow: var(--shadow);
+$border-color: var(--border);
+$primary-color: var(--primary);

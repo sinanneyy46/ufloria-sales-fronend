@@ -1,0 +1,34 @@
+// Breakpoints
+$mobile: 800px;
+$tablet: 900px;
+
+// Helpers
+.hide-mobile {
+  display: none !important;
+}
+
+@media (min-width: $mobile) {
+  .hide-mobile {
+    display: flex !important;
+  }
+}
+
+.show-mobile {
+  display: none !important;
+}
+
+@media (max-width: $mobile) {
+  body {
+    margin-top: 100px !important;
+  }
+  .show-mobile {
+    display: initial !important;
+  }
+}
+
+/* Container scaling */
+.page-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.2rem;
+}

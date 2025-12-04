@@ -1,0 +1,32 @@
+@import "./variables";
+@import "./global";
+
+.supplier-page {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  .supplier-card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 14px;
+    box-shadow: $shadow;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+
+    input,
+    textarea {
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      border-radius: 8px;
+      background: transparent;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .page-container {
+    padding: 0;
+  }
+}

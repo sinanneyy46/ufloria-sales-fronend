@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "DarkerGrotesque-Black";
+  src: url("DarkerGrotesque-Black.woff2") format("woff2"),
+    url("DarkerGrotesque-Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-Medium";
+  src: url("DarkerGrotesque-Medium.woff2") format("woff2"),
+    url("DarkerGrotesque-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-Light";
+  src: url("DarkerGrotesque-Light.woff2") format("woff2"),
+    url("DarkerGrotesque-Light.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-Bold";
+  src: url("DarkerGrotesque-Bold.woff2") format("woff2"),
+    url("DarkerGrotesque-Bold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-ExtraBold";
+  src: url("DarkerGrotesque-ExtraBold.woff2") format("woff2"),
+    url("DarkerGrotesque-ExtraBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-Regular";
+  src: url("DarkerGrotesque-Regular.woff2") format("woff2"),
+    url("DarkerGrotesque-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DarkerGrotesque-SemiBold";
+  src: url("DarkerGrotesque-SemiBold.woff2") format("woff2"),
+    url("DarkerGrotesque-SemiBold.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+$bold: "DarkerGrotesque-Bold", sans-serif;
+$black: "DarkerGrotesque-Black", sans-serif;
+$extraBold: "DarkerGrotesque-ExtraBold", sans-serif;
+$semiBold: "DarkerGrotesque-SemiBold", sans-serif;
+$medium: "DarkerGrotesque-Medium", sans-serif;
+$regular: "DarkerGrotesque-Regular", sans-serif;
+$light: "DarkerGrotesque-Light", sans-serif;
+$primary-font: $medium;
+$secondary-font: $extraBold;

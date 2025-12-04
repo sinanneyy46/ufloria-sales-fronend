@@ -1,0 +1,249 @@
+@import "./variables";
+@import "./global";
+
+.perfume-page {
+  .perfume-form {
+    width: 100%;
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: $shadow;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem;
+
+    input {
+      background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.8rem;
+      border-radius: 8px;
+      flex: 1;
+    }
+
+    .check {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin: 0 1rem;
+    }
+    button {
+      padding: 0.8rem 2.2rem;
+    }
+  }
+
+  table {
+    width: 100%;
+    background: var(--card-bg);
+    border-radius: $radius;
+    border-collapse: collapse;
+    box-shadow: $shadow;
+
+    th,
+    td {
+      padding: 1rem;
+      border-bottom: 1px solid $border-color;
+      text-align: left;
+    }
+
+    th {
+      font-weight: 600;
+    }
+
+    .delete {
+      background: #e74c3c !important;
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    cursor: pointer;
+    &:first-child {
+      margin-right: 12px;
+    }
+  }
+}
+
+.actions img:hover {
+  background: rgba(0, 0, 0, 0.03);
+  transform: scale(1.1);
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 160ms ease, box-shadow 160ms ease;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: $mobile) {
+  .perfume-page {
+    margin-bottom: 50px !important;
+  }
+  .perfume-page .perfume-form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+
+    input:first-child {
+      flex: 1 1 100%;
+    }
+    input:nth-child(2),
+    input:nth-child(3) {
+      flex: 1 1 calc(50% - 0.4rem);
+      min-width: 0;
+      margin: 0;
+    }
+    .check {
+      margin: 0;
+      margin-right: 1rem;
+      flex: 1;
+      font-size: 16px;
+    }
+    button {
+      flex: 2;
+    }
+  }
+
+  /* PERFUME CARD VIEW — clean and simple */
+  .perfume-page table {
+    display: block;
+    width: 100%;
+    background: none !important;
+    box-shadow: none !important;
+    border: none;
+  }
+
+  .perfume-page thead {
+    display: none;
+  }
+
+  .perfume-page tbody {
+    display: block;
+    width: 100%;
+    background: none;
+  }
+
+  .perfume-page tr {
+    display: block;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 280ms $ease-smooth, box-shadow 280ms $ease-smooth;
+    border: 1px solid rgba(0, 0, 0, 0.02);
+    position: relative;
+  }
+
+  .perfume-page tr:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+  }
+
+  /* perfume name: prominent header */
+  .perfume-page tr > td:first-child {
+    color: var(--primary);
+    padding: 0px !important;
+    margin: 0px !important;
+    border-radius: 10px;
+    font-family: $bold;
+    font-size: 22px !important;
+  }
+
+  .perfume-page tr > td:first-child::before {
+    display: none;
+  }
+
+  .perfume-page tr > td:nth-child(2) {
+    display: none !important;
+    flex-direction: column !important;
+
+    &::before {
+      display: inline-block !important;
+    }
+  }
+
+  .perfume-page tr > td:nth-child(2)::before {
+    width: fit-content !important;
+  }
+
+  /* other cells: simple label + value layout */
+  .perfume-page tr > td {
+    padding: 0px 0 !important;
+    border: none !important;
+    font-size: 0.95rem !important;
+    color: var(--text);
+    font-family: $bold;
+  }
+
+  /* show labels before values */
+  .perfume-page tr > td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: 600;
+    color: var(--text-soft);
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
+  /* actions cell: no label, right-aligned */
+  .perfume-page .actions {
+    display: flex !important;
+    width: fit-content !important;
+    margin-left: auto !important;
+    position: absolute !important;
+    right: 0 !important;
+    top: 10px !important;
+    align-items: center;
+    justify-content: flex-end;
+
+    img {
+      width: 46px !important;
+      height: 46px !important;
+      cursor: pointer;
+      transition: transform 240ms $ease-smooth, opacity 200ms $ease-smooth;
+
+      &:hover {
+        transform: scale(1.1);
+        opacity: 0.85;
+      }
+
+      &:first-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  .perfume-page .actions::before {
+    display: none;
+  }
+
+  @media (max-width: 420px) {
+    .perfume-page tr {
+      padding: 0.75rem;
+    }
+
+    .perfume-page tr > td:first-child {
+      font-size: 1rem;
+      padding: 0 0 0.6rem 0 !important;
+      margin-bottom: 0.6rem;
+    }
+
+    .perfume-page tr > td::before {
+      min-width: 70px;
+      font-size: 0.85rem;
+    }
+
+    .perfume-page .actions img {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}

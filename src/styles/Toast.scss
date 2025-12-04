@@ -1,0 +1,42 @@
+@import "./variables";
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  padding: 14px 20px;
+  border-radius: 10px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  z-index: 9999;
+  animation: slideIn 0.25s ease-out;
+
+  &.success {
+    background: linear-gradient(90deg, #28c76f, #1f9d59);
+  }
+
+  &.error {
+    background: linear-gradient(90deg, #ea5455, #cf3435);
+  }
+
+  &.warning {
+    background: linear-gradient(90deg, #ff9f43, #d97a15);
+  }
+
+  &.info {
+    background: linear-gradient(90deg, #28c76f, #1f9d59);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,212 @@
+@import "./variables";
+@import "./global";
+
+table {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+  border-radius: 12px;
+}
+th {
+  background: #f6f2eb;
+  font-family: $extraBold;
+}
+
+tr {
+  width: 100%;
+}
+th,
+td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+tbody tr:hover {
+  background: #faf7f2;
+}
+th {
+  font-weight: 600;
+  text-align: left;
+}
+
+@media (max-width: $mobile) {
+  table {
+    border: none;
+    display: block;
+    width: 100%;
+    background: none !important;
+    box-shadow: none !important;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tbody {
+    display: block;
+    width: 100%;
+    background: none;
+  }
+
+  tr {
+    display: block;
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 0.9rem !important; /* extra bottom padding for content */
+    margin-bottom: 12px;
+    box-shadow: var(--shadow);
+    transition: transform 320ms $ease-smooth, box-shadow 320ms $ease-smooth,
+      opacity 260ms $ease-smooth;
+    opacity: 0.98;
+    overflow: hidden;
+  }
+
+  tr:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Top header: highlight date + name */
+  td:first-child {
+    padding: 12px;
+    border-radius: 10px;
+    display: block;
+    width: fit-content;
+    font-size: 12px;
+    letter-spacing: 0.1rem;
+    font-family: $regular;
+  }
+
+  td:nth-child(2) {
+    display: block;
+    color: var(--primary);
+    padding: 12px;
+    border-radius: 10px;
+    font-family: $bold;
+    font-size: 22px !important;
+  }
+
+  td:nth-child(3) {
+    padding-right: 5px !important;
+  }
+
+  /* hide the small label for the header cells (we show date/name directly) */
+  td:first-child::before,
+  td:nth-child(2)::before,
+  td:nth-child(6)::before {
+    display: none;
+  }
+
+  /* 3-dots button: placed top-right inside the card */
+  .menu-cell {
+    position: absolute;
+    right: 12px;
+    top: 6px;
+    padding: 0;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .menu-cell .dots-btn {
+    padding: 6px 8px;
+    transition: background 220ms $ease-smooth, transform 200ms $ease-smooth;
+  }
+
+  .menu-cell .dots-btn:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  /* other cells become stacked content below header */
+  td {
+    padding: 3px 0 !important;
+    border: none !important;
+    font-family: $bold;
+  }
+
+  /* hide the repeated label for header-like values; keep labels for others */
+  td::before {
+    content: attr(data-label);
+    display: block;
+    font-family: $regular;
+    color: var(--text-soft);
+    min-width: 95px;
+    margin-right: 8px;
+  }
+
+  /* status badge styling (td that contains .status or class 'status') */
+  .status,
+  td.status-cell {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-family: $medium;
+    font-size: 0.82rem;
+    color: var(--text);
+    background: rgba(0, 0, 0, 0.04);
+    text-transform: capitalize;
+  }
+
+  .pending.status,
+  .status.pending {
+    background: linear-gradient(90deg, #fff4dc, #fff8e8);
+  }
+  .ordered.status,
+  .status.ordered {
+    background: linear-gradient(90deg, #e8f6ff, #f5fbff);
+  }
+  .delivered.status,
+  .status.delivered {
+    background: linear-gradient(90deg, #f3fff0, #f8fff7);
+  }
+  .paid.status,
+  .status.paid {
+    background: linear-gradient(90deg, #f6f0ff, #fbf7ff);
+  }
+
+  /* left/right helper classes if used */
+  td.left {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+
+  td.right {
+    flex: 0 0 auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+
+  /* action buttons (keep touch-friendly) */
+  .actions img,
+  .actions button,
+  .btn {
+    width: auto;
+    padding: 6px 10px !important;
+    border-radius: 8px;
+  }
+
+  @media (max-width: 420px) {
+    td::before {
+      min-width: 80px;
+      font-size: 0.86rem;
+    }
+    td:first-child,
+    td:nth-child(2) {
+      padding: 10px;
+    }
+    td:nth-child(2) {
+      font-size: 1rem;
+    }
+  }
+}

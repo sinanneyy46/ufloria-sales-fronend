@@ -1,0 +1,120 @@
+@import "global";
+
+.navbar {
+  padding: 0.8rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: $shadow;
+  position: fixed;
+  z-index: 1000;
+  top: 30px;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 95%;
+  margin: 0 auto;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid var(--border);
+  transition: background 0.3s $ease-smooth, border-color 0.3s $ease-smooth;
+
+  .nav-left {
+    display: flex;
+    align-items: center;
+    .logo {
+      height: 60px;
+      width: auto;
+      display: block;
+      padding: 5px;
+      cursor: pointer;
+    }
+    .title {
+      height: 20px;
+      width: auto;
+      display: block;
+      cursor: pointer;
+    }
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+
+    a {
+      color: var(--text-soft, #6b5b4c);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s $ease-smooth;
+      padding-bottom: 6px; /* reserve space for the bottom border when active */
+    }
+
+    /* active link styling */
+    a.active {
+      color: var(--primary, $primary-color);
+      border-bottom: 1px solid var(--primary, $primary-color);
+      padding-bottom: 1px;
+      transition: color 0.25s $ease-smooth, border-color 0.25s $ease-smooth;
+    }
+  }
+
+  .open {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: $shadow;
+    height: auto;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    .mode {
+      height: 24px;
+      width: 24px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 80px;
+    right: -100%;
+    width: 70%;
+    height: calc(100vh - 80px);
+    background: var(--card-bg);
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    border-left: 1px solid var(--border);
+    transition: right 0.25s ease;
+    box-shadow: -6px 0 22px rgba(0, 0, 0, 0.1);
+    display: flex !important; /* always flex, sliding controls visibility */
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .nav-left {
+    .logo {
+      height: 40px !important;
+    }
+    .title {
+      height: 15px !important;
+    }
+  }
+  .nav-links {
+    display: none;
+  }
+}

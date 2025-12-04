@@ -1,0 +1,156 @@
+@import "./variables";
+@import "./global";
+
+.order-page {
+  padding: 2rem;
+  max-width: 940px;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 1.25rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+  }
+
+  .order-form {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: 14px;
+    box-shadow: $shadow;
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 1rem;
+    align-items: start;
+
+    /* left column (form) */
+    > form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+
+      input,
+      select {
+        padding: 0.9rem;
+        border-radius: 10px;
+        border: 1px solid $border-color;
+        background: transparent;
+        color: var(--text);
+        font-size: 0.98rem;
+      }
+
+      input[readonly] {
+        background: rgba(0, 0, 0, 0.02);
+      }
+
+      .row {
+        display: flex;
+        gap: 0.75rem;
+      }
+
+      button {
+        padding: 0.85rem;
+        border-radius: 10px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      button[type="submit"] {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .whatsapp-btn {
+        background: #25d366;
+        margin-top: 0.2rem;
+      }
+
+      .whatsapp-btn[disabled] {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    /* right column (preview) */
+    .preview-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .preview-card {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.98),
+        var(--card-bg)
+      );
+      border-radius: 12px;
+      padding: 0.9rem;
+      box-shadow: $shadow;
+      border: 1px solid $border-color;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .preview-header {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.4rem 0.6rem;
+      border-radius: 8px;
+      background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(184, 139, 91, 0.12);
+    }
+
+    .preview-text {
+      white-space: pre-wrap;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+        "Courier New", monospace;
+      font-size: 0.95rem;
+      color: var(--text);
+      padding: 0.6rem;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.02);
+      min-height: 120px;
+      overflow-wrap: anywhere;
+    }
+
+    .preview-actions {
+      display: flex;
+      gap: 0.6rem;
+      justify-content: flex-end;
+    }
+
+    .copy-btn {
+      padding: 0.55rem 0.9rem;
+      border-radius: 8px;
+      border: 1px solid $border-color;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    /* responsive */
+    @media (max-width: 920px) {
+      grid-template-columns: 1fr;
+      .preview-wrap {
+        order: 2;
+      }
+    }
+  }
+
+  /* small warning if father number missing */
+  .warning {
+    margin-top: 0.8rem;
+    color: var(--error);
+    font-weight: 600;
+  }
+}
+
+@media (max-width: $mobile) {
+  .order-form {
+    grid-template-columns: 1fr;
+  }
+}
