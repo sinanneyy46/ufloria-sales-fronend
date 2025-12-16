@@ -1,18 +1,19 @@
 import axios from "axios";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "http://127.0.0.1:8000/api/";
+const API_BASE =
+  import.meta.env.VITE_API_BASE || "https://ufloria-sales.onrender.com/api/";
 
 const client = axios.create({
   baseURL: API_BASE,
 });
 
-// Automatically attach token
-client.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
+// Set token in axios header after login
+export function setAuthToken(token) {
   if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+    client.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+  } else {
+    delete client.defaults.headers.common["Authorization"];
   }
-  return config;
-});
+}
 
 export default client;
