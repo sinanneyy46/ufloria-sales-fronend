@@ -1,22 +1,11 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import RequireAuth from "./RequireAuth";
-
-// pages
-import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard";
-import PerfumeList from "./pages/PerfumeList";
-import OrderForm from "./pages/OrderForm";
-import SupplierView from "./pages/SupplierView";
-
-import Layout from "./components/Layout";
-
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public */}
         <Route path="/login" element={<Login />} />
 
-        {/* Protected area */}
+        {/* Protected */}
         <Route
           path="/"
           element={
@@ -30,7 +19,8 @@ export default function App() {
           <Route path="supplier" element={<SupplierView />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/" replace />} />
+        {/* Catch-all */}
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
     </BrowserRouter>
   );
